@@ -1,6 +1,6 @@
 import useFetchGames from "@/hooks/useFetchGames";
 import Container from "@/components/container";
-import Layout from "@/components/layout";
+import Layout from "@/components/layout/layout";
 import GameCard from "@/components/game-card";
 import Select from "@/components/select";
 

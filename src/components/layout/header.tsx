@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import Container from "./container";
-import NavigationMenu from "./navigation-menu";
-import { Button } from "./ui/button";
-import ThemeToggle from "./theme-toggle";
+import Container from "../container";
+import NavigationMenu from "../navigation-menu";
+import { Button } from "../ui/button";
+import ThemeToggle from "../theme-toggle";
 
 const Header = () => {
   return (
