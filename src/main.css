@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+@layer debug {
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
@@ -35,7 +35,7 @@
     --radius: 0.5rem;
   }
 
-  .dark {
+  :root.dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
 
@@ -73,6 +73,10 @@
 
   body {
     @apply text-foreground bg-background;
+  }
+
+  img {
+    @apply w-full max-h-full object-cover;
   }
 
   /* #root {

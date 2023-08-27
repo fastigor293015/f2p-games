@@ -9,7 +9,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <>
       <Header />
-      <main className="py-8">
+      <main className="py-12">
         {children}
       </main>
       <Footer />

@@ -9,8 +9,6 @@ import {
 } from "@/components/ui/navigation-menu"
 import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
-import { SelectLabel } from "./ui/select";
-// import { MoreHorizontal } from "lucide-react";
 
 interface Item {
   title: string;
@@ -23,7 +21,7 @@ const freeGamesItems: Item[] = [
     href: "https://www.freetogame.com/games/mmorpg",
   },
   {
-    title: "ShooterShooterShooterShooterShooterShooterShooter",
+    title: "Shooter",
     href: "https://www.freetogame.com/games/shooter",
   },
   {
@@ -153,7 +151,7 @@ const NavigationMenu = () => {
             Explore
           </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid gap-1 p-6 md:w-[100px] lg:w-[200px] lg:grid-cols-1">
+            <ul className="grid gap-1 p-6 md:w-[200px] lg:w-[300px] lg:grid-cols-1">
               <li>
                 <h3 className="text-sm font-bold">Explore our other sites</h3>
               </li>
@@ -188,12 +186,12 @@ const ListItem = forwardRef<
         ref={ref}
         to={href}
         className={cn(
-          "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+          "block select-none space-y-1 rounded-md p-3 truncate text-sm font-medium leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
           className
         )}
         {...props}
       >
-        <p className="text-sm font-medium truncate leading-none overflow-y-visible">{title}</p>
+        {title}
       </Link>
     </li>
   )

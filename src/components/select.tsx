@@ -3,7 +3,7 @@ import { Select as ShadcnSelect, SelectContent, SelectGroup, SelectItem, SelectL
 const Select = () => {
   return (
     <ShadcnSelect defaultValue="all">
-      <SelectTrigger className="max-w-[180px]">
+      <SelectTrigger className="max-w-[250px]">
         <SelectValue placeholder="Select a platform" />
       </SelectTrigger>
       <SelectContent>
