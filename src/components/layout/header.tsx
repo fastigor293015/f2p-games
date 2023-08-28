@@ -9,7 +9,7 @@ const Header = () => {
     <header className="sticky top-0 z-20 shadow-md bg-background">
       <Container className="flex items-center justify-between gap-3 h-16">
         <div className="flex items-center gap-3">
-          <Link to="/">
+          <Link to="/" className="p-1 rounded-lg bg-foreground dark:bg-background scale-90">
             <img src="/logo-header.png" alt="freetogame" />
           </Link>
           <NavigationMenu />

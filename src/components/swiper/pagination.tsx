@@ -1,17 +1,51 @@
-import { useSwiper } from "swiper/react";
+import { cn } from "@/lib/utils";
+import { type Swiper } from "swiper/types";
 
 interface PaginationProps {
   imgList: string[];
+  swiper: Swiper | null;
+  activeIndex: number;
+  className?: string;
 }
 
-const Pagination: React.FC<PaginationProps> = ({ imgList }) => {
-  const swiper = useSwiper();
+const Pagination: React.FC<PaginationProps> = ({ imgList, swiper, activeIndex, className }) => {
+  if (!swiper) return null;
 
   return (
-    <div className="grid grid-cols-4 gap-5 mb-5">
+    <div className={cn("grid grid-cols-6 gap-5 mt-5", className)} style={{ gridTemplateColumns: `repeat(${imgList.length}, 1fr)` }}>
       {imgList?.map((img, i) => (
-        <button key={`pagination-${i}-${img}`} className="rounded-lg overflow-hidden" onClick={() => swiper.slideTo(i)}>
-          <img src={img} alt="bullet" />
+        <button
+          key={`pagination-${i}-${img}`}
+          className={cn(`
+            group
+            relative
+            rounded-lg
+            overflow-hidden
+            after:content-normal
+            after:absolute
+            after:inset-0
+            after:z-[1]
+            after:rounded-lg
+            after:border-2
+            after:border-foreground
+            after:opacity-0
+            focus:after:opacity-100
+          `,
+            activeIndex === i && "after:opacity-100"
+          )}
+          aria-label={`Switch to slide №${i + 1}`}
+          onClick={() => swiper.slideToLoop(i)}
+        >
+          <img
+            className={cn(`
+              opacity-50
+              group-hover:opacity-100
+              transition-opacity
+            `,
+              activeIndex === i && "opacity-100"
+            )}
+            src={img}
+            alt="thumbnail" />
         </button>
       ))}
     </div>
