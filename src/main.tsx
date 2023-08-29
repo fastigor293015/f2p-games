@@ -9,7 +9,7 @@ import './main.css';
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <Provider store={store}>
     <PersistGate persistor={persistor}>
-      <Toaster />
+      <Toaster toastOptions={{ className: "text-foreground bg-primary-foreground" }} />
       <App />
     </PersistGate>
   </Provider>

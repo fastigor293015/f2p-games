@@ -109,9 +109,13 @@ const browserGamesItems: Item[] = [
   },
 ];
 
-const NavigationMenu = () => {
+interface NavigationMenuProps {
+  className?: string;
+}
+
+const NavigationMenu: React.FC<NavigationMenuProps> = ({ className }) => {
   return (
-    <ShadcnNavigationMenu>
+    <ShadcnNavigationMenu className={className}>
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuTrigger>

@@ -14,18 +14,25 @@ const options: AxiosRequestConfig = {
 
 const useFetchGames = () => {
   const [data, setData] = useState<GameItem[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    console.log(import.meta.env.VITE_RAPID_API_KEY)
+    setIsLoading(true);
     axios.request(options)
       .then((res) => {
         console.log(res.data);
         setData(res.data);
+        setIsLoading(false);
       })
-      .catch((err) => toast.error(err));
+      .catch(() => {
+        toast.error("Something went wrong");
+        setIsLoading(false);
+      })
+      .finally(() => setIsLoading(false));
   }, []);
 
   return {
+    isLoading,
     data
   }
 };

@@ -15,18 +15,25 @@ const options = (id: number): AxiosRequestConfig => ({
 
 const useFetchGameById = (id: string | number | undefined) => {
   const [data, setData] = useState<GameDetails | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    console.log(import.meta.env.VITE_RAPID_API_KEY)
+    setIsLoading(true);
     axios.request(options(id as number))
       .then((res) => {
         console.log(res.data);
         setData(res.data);
+        setIsLoading(false);
       })
-      .catch((err) => toast.error(err));
+      .catch(() => {
+        toast.error("Something went wrong");
+        setIsLoading(false);
+      })
+      .finally(() => setIsLoading(false));
   }, []);
 
   return {
+    isLoading,
     data
   }
 };

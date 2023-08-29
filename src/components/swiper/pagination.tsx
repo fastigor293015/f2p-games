@@ -12,7 +12,7 @@ const Pagination: React.FC<PaginationProps> = ({ imgList, swiper, activeIndex, c
   if (!swiper) return null;
 
   return (
-    <div className={cn("grid grid-cols-6 gap-5 mt-5", className)} style={{ gridTemplateColumns: `repeat(${imgList.length}, 1fr)` }}>
+    <div className={cn("grid grid-cols-6 gap-3 sm:gap-5 mt-3 sm:mt-5", className)} style={{ gridTemplateColumns: `repeat(${imgList.length}, 1fr)` }}>
       {imgList?.map((img, i) => (
         <button
           key={`pagination-${i}-${img}`}

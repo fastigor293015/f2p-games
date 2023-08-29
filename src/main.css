@@ -79,7 +79,7 @@
     @apply w-full max-h-full object-cover;
   }
 
-  /* #root {
-    @apply h-screen overflow-hidden;
-  } */
+  .swiper .swiper-slide {
+    height: auto;
+  }
 }
