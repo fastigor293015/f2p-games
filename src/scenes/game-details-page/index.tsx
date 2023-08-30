@@ -1,18 +1,23 @@
-import { useMemo, Fragment } from "react";
+import { useMemo, Fragment, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { MoveLeft } from "lucide-react";
 import Layout from "@/components/layout/layout";
-import Container from "@/components/container";
+import Container from "@/components/shared/container";
 import ThumbsSlider from "@/components/thumbs-slider";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import SectionTitle from "@/components/section-title";
+import SectionTitle from "@/components/shared/section-title";
 import GameDetailsPageSkeleton from "./skeleton";
 import { useGetGameByIdQuery } from "@/services/gamesApi";
+import { toast } from "react-hot-toast";
 
 const GameDetailsPage = () => {
   const { gameId } = useParams();
-  const { data, isLoading } = useGetGameByIdQuery(gameId!);
+  const { data, isLoading, error } = useGetGameByIdQuery(gameId!);
+
+  useEffect(() => {
+    if (error) toast.error("Something went wrong.");
+  }, [error]);
 
   const screensUrls = useMemo(() => data?.screenshots.map((screen) => screen.image) || [], [data]);
   const slidesImgs = useMemo(() => data?.thumbnail ? [data?.thumbnail, ...screensUrls] : [], [screensUrls, data]);
@@ -99,7 +104,11 @@ const GameDetailsPage = () => {
             </div>
           </>
         ) : (
-          <p>Cannot find information about this game.</p>
+          <p>
+            <i>
+              Cannot find information about this game.
+            </i>
+          </p>
         )}
       </Container>
     </Layout>

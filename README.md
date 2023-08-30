@@ -1,6 +1,6 @@
 # React + TypeScript + Vite
 
-## Clone the project
+### Clone the project
 
 ```bash
 git clone https://github.com/fastigor293015/f2p-games.git

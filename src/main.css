@@ -82,4 +82,8 @@
   .swiper .swiper-slide {
     height: auto;
   }
+
+  button[role="combobox"] span {
+    @apply truncate;
+  }
 }

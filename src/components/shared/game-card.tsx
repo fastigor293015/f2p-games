@@ -26,7 +26,7 @@ const GameCard: React.FC<GameCardProps> = ({ id, title, releaseDate, publisher, 
         group-focus:after:opacity-10
         after:transition-opacity"
       >
-        <div className="absolute top-0 right-0 p-2 rounded-bl-lg rounded-tr-lg font-bold text-white bg-indigo-700/60">{genre}</div>
+        <div className="absolute top-0 right-0 p-2 rounded-bl-lg rounded-tr-lg border-2 border-white font-bold text-white bg-indigo-700/60">{genre}</div>
         <img src={img} alt="thumbnail" />
       </div>
       <div>

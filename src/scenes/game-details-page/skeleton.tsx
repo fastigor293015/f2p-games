@@ -34,7 +34,7 @@ const GameDetailsPageSkeleton = () => {
           <Skeleton className="h-36 sm:h-48 mb-5" />
           <Skeleton className="h-6 max-w-[150px] mb-3" />
           <ul className="mb-5">
-            {skeletonItems.map((entry, i) => (
+            {skeletonItems.map((_, i) => (
               <Fragment key={i}>
                 {i === 0 && <Separator />}
                 <ListItem />
@@ -45,7 +45,7 @@ const GameDetailsPageSkeleton = () => {
 
           <Skeleton className="h-6 max-w-[150px] mb-3" />
           <ul>
-            {skeletonItems.map((entry, i) => (
+            {skeletonItems.map((_, i) => (
               <Fragment key={i}>
                 {i === 0 && <Separator />}
                 <ListItem />

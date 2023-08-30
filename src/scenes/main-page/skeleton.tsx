@@ -14,7 +14,7 @@ const MainPageSkeleton = () => {
         <Skeleton className="h-10" />
       </div>
       <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {skeletonCards.map((card, i) => (
+        {skeletonCards.map((_, i) => (
           <GameCardSkeleton key={i} />
         ))}
       </ul>

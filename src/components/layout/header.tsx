@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Container from "../container";
+import Container from "../shared/container";
 import NavigationMenu from "../navigation-menu";
 import { Button } from "../ui/button";
 import ThemeToggle from "../theme-toggle";
