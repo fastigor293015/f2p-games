@@ -38,6 +38,7 @@ const Pagination: React.FC<PaginationProps> = ({ imgList, swiper, activeIndex, c
         >
           <img
             className={cn(`
+              h-full
               opacity-50
               group-hover:opacity-100
               transition-opacity

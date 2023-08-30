@@ -1,6 +1,5 @@
 import { useMemo, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
-import useFetchGames from "@/hooks/useFetchGames";
 import Container from "@/components/container";
 import Layout from "@/components/layout/layout";
 import GameCard from "@/components/game-card";
@@ -8,6 +7,7 @@ import Select, { SelectSection } from "@/components/select";
 import SectionTitle from "@/components/section-title";
 import MainPageSkeleton from "./skeleton";
 import GameCardSkeleton from "@/components/skeletons/game-card-skeleton";
+import { useGetGamesQuery } from "@/services/gamesApi";
 
 const platformItems: SelectSection[] = [
   {
@@ -274,8 +274,8 @@ const sortItems: SelectSection[] = [
 ];
 
 const MainPage = () => {
-  const { isLoading, data } = useFetchGames();
-  const [cardsCount, setCardsCount] = useState(30);
+  const { data = [], isLoading } = useGetGamesQuery(undefined);
+  const [cardsCount, setCardsCount] = useState(24);
   const displayedCards = useMemo(() => data.slice(0, cardsCount), [data, cardsCount]);
 
   const maxCardsReturned = 12;
@@ -307,8 +307,8 @@ const MainPage = () => {
               hasMore={displayedCards.length < data.length}
               loader={(
                 <>
-                  {skeletonCards.map(() => (
-                    <GameCardSkeleton />
+                  {skeletonCards.map((card, i) => (
+                    <GameCardSkeleton key={i} />
                   ))}
                 </>
               )}
