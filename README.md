@@ -1,28 +1,31 @@
 # React + TypeScript + Vite
 
-## Project setup
+## Clone the project
+
+```bash
+git clone https://github.com/fastigor293015/f2p-games.git
+```
+
+### Enter the project directory
+
+```bash
+cd f2p-games
+```
+
+### Install dependencies
 
 ```bash
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Start the development server
 
 ```bash
-npm run dev
+npm start
 ```
 
-### Compiles and minifies for production
+### Create bundle for production
 
 ```bash
 npm run build
-```
-
-## Usage
-
-```bash
-git clone https://github.com/element-plus/element-plus-vite-starter
-cd element-plus-vite-starter
-npm i
-npm run dev
 ```
